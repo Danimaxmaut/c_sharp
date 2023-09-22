@@ -1,19 +1,18 @@
 using System;
 
-namespace ConsoleApp1
+namespace pract3_IV_9
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
             int a = int.Parse(Console.ReadLine());
             int b = int.Parse(Console.ReadLine());
-            for (int i = a; i < b; i++)
+            while (a % 3 != 0)
+                a+=1;
+            for (int i = a; i < b; i+=3)
             {
-                if (i % 3 == 0)
-                {
-                    Console.WriteLine(i);
-                }
+                Console.WriteLine(i);
             }
         }
     }
