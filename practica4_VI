@@ -1,0 +1,50 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Введите натуральное число N: ");
+        int N = int.Parse(Console.ReadLine());
+
+        int largestPrimeFactor = GetLargestPrimeFactor(N);
+        int smallestPrimeFactor = GetSmallestPrimeFactor(N);
+
+        int result = largestPrimeFactor + smallestPrimeFactor;
+
+        Console.WriteLine("Результат: " + result);
+    }
+
+    static int GetLargestPrimeFactor(int number)
+    {
+        int largestFactor = 1;
+
+        for (int i = 2; i <= number; i++)
+        {
+            if (number % i == 0)
+            {
+                largestFactor = i;
+
+                while (number % i == 0)
+                {
+                    number /= i;
+                }
+            }
+        }
+
+        return largestFactor;
+    }
+
+    static int GetSmallestPrimeFactor(int number)
+    {
+        for (int i = 2; i <= number; i++)
+        {
+            if (number % i == 0)
+            {
+                return i;
+            }
+        }
+
+        return number;
+    }
+}
